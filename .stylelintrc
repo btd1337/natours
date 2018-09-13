@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "indentation": "tab",
+    "function-parentheses-space-inside": "never-single-line"
+  }
+}
