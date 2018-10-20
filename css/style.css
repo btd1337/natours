@@ -1,17 +1,57 @@
-/*
-COLORS:
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-Light green  : #7ed56f
-Medium green : #55c57a
-Dark green   : #28b485
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-*/
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
   box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   color: #777;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -19,10 +59,29 @@ body {
   padding: 3rem;
 }
 
-* {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+.heading-primary {
+  /* fix animation bug */
+  backface-visibility: hidden;
+  color: #fff;
+  margin-bottom: 6rem;
+  text-transform: uppercase;
+}
+
+.heading-primary--main {
+  animation-duration: 1.5s;
+  animation-name: moveInLeft;
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+}
+
+.heading-primary--sub {
+  animation: moveInRight 1.5s ease-out;
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
 }
 
 .btn::after {
@@ -103,68 +162,4 @@ body {
   text-align: center;
   top: 40%;
   transform: translate(-50%, -50%);
-}
-
-.heading-primary {
-  /* fix animation bug */
-  backface-visibility: hidden;
-  color: #fff;
-  margin-bottom: 6rem;
-  text-transform: uppercase;
-}
-
-.heading-primary--main {
-  animation-duration: 1.5s;
-  animation-name: moveInLeft;
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-}
-
-.heading-primary--sub {
-  animation: moveInRight 1.5s ease-out;
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
-  80% {
-    transform: translateX(1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-  80% {
-    transform: translateX(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
