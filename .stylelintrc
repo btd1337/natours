@@ -1,7 +1,14 @@
 {
   "extends": "stylelint-config-sass-guidelines",
   "rules": {
+    "function-parentheses-space-inside": "never-single-line",
     "indentation": "tab",
-    "function-parentheses-space-inside": "never-single-line"
+    "max-nesting-depth": 2,
+    "selector-class-pattern": [
+      "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+      {
+        "message": "Class names should match the SUIT CSS naming convention"
+      }
+    ]
   }
 }
