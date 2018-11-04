@@ -1,0 +1,44 @@
+.row {
+	@include clearfix;
+	background-color: #eee;
+	margin: 0 auto;
+	max-width: $grid-width;
+
+	&:not(:last-child) {
+		margin-bottom: $gutter-vertical;
+	}
+
+	// Select all classes that start width col
+	[class^="col-"] {
+		background-color: hsl(16, 100%, 50%);
+		float: left;
+
+		&:not(:last-child) {
+			margin-right: $gutter-horizontal;
+		}
+	}
+
+	.col-1-of-2 {
+		width: grid-x-of-y(1, 2);
+	}
+
+	.col-1-of-3 {
+		width: grid-x-of-y(1, 3);
+	}
+
+	.col-1-of-4 {
+		width: grid-x-of-y(1, 4);
+	}
+
+	.col-2-of-3 {
+		width: grid-x-of-y(2, 3);
+	}
+
+	.col-2-of-4 {
+		width: grid-x-of-y(2, 4);
+	}
+
+	.col-3-of-4 {
+		width: grid-x-of-y(3, 4);
+	}
+}
