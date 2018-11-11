@@ -30,3 +30,46 @@ body {
 		letter-spacing: 1.75rem;
 	}
 }
+
+.heading-secondary {
+	color: transparent;
+	display: inline-block;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	transition: all 0.2s;
+
+	background: {
+		clip: text; // apply gradient just into text
+		image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	}
+
+	font: {
+		size: 3.5rem;
+		weight: 700;
+	}
+
+	&:hover {
+		text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+		transform: skew(15deg, 2deg) scale(1.1);
+	}
+
+}
+
+.heading-tertiary {
+	text-transform: uppercase;
+
+	font: {
+		size: $default-font-size;
+		weight: 700;
+	}
+}
+
+.paragraph {
+	font: {
+		size: $default-font-size;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}

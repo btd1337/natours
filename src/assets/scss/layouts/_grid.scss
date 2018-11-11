@@ -1,6 +1,6 @@
 .row {
 	@include clearfix;
-	background-color: #eee;
+
 	margin: 0 auto;
 	max-width: $grid-width;
 
@@ -9,8 +9,7 @@
 	}
 
 	// Select all classes that start width col
-	[class^="col-"] {
-		background-color: hsl(16, 100%, 50%);
+	[class^='col-'] {
 		float: left;
 
 		&:not(:last-child) {
