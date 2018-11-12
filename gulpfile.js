@@ -69,6 +69,12 @@ gulp.task('sass', function () {
 		);
 });
 
+gulp.task('third-party-css', function () {
+	gulp
+		.src('src/assets/css/third-party/**/*')
+		.pipe(gulp.dest(DEST + '/assets/css/third-party/'));
+});
+
 // Compile Bootstrap SASS files into CSS FILES
 gulp.task('bootstrap', () => {
 	gulp
@@ -137,15 +143,15 @@ gulp.task('default', ['develop', 'sass', 'browser-sync'], function () {
 
 // Clean dist folder before rebuild
 gulp.task('clean', function () {
-	return del(['./dist']);
+	return del(['./docs']);
 });
 
-gulp.task('build', sequence('clean', ['production', 'sass', 'js', 'images', 'html']));
+gulp.task('build', sequence('clean', ['production', 'sass', 'third-party-css', 'js', 'images', 'html']));
 
 gulp.task('develop', () => {
 	DEST = './src';
 });
 
 gulp.task('production', () => {
-	DEST = './dist';
+	DEST = './docs';
 });
