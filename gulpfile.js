@@ -130,7 +130,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('default', ['develop', 'sass', 'browser-sync'], function () {
-	gulp.watch('src/assets/scss/**/*.scss', ['sass']);
+	gulp.watch('src/assets/scss/**/*.scss', ['sass', 'bs-reload']);
 	gulp.watch('src/assets/js/**/*.js', ['js']);
 	gulp.watch('src/*.html', ['bs-reload']);
 });
