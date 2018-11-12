@@ -3,6 +3,7 @@ const browserSync = require('browser-sync');
 const cache = require('gulp-cache');
 const concat = require('gulp-concat');
 const del = require('del'); // rm -rf
+const ghPages = require('gulp-gh-pages');
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const jsmin = require('gulp-jsmin');
@@ -135,16 +136,17 @@ gulp.task('html', () => {
 	gulp.src('src/**/*.html').pipe(gulp.dest(DEST));
 });
 
+// Clean dist folder before rebuild
+gulp.task('clean', function () {
+	return del(['./dist']);
+});
+
 gulp.task('default', ['develop', 'sass', 'browser-sync'], function () {
 	gulp.watch('src/assets/scss/**/*.scss', ['sass', 'bs-reload']);
 	gulp.watch('src/assets/js/**/*.js', ['js']);
 	gulp.watch('src/*.html', ['bs-reload']);
 });
 
-// Clean dist folder before rebuild
-gulp.task('clean', function () {
-	return del(['./docs']);
-});
 
 gulp.task('build', sequence('clean', ['production', 'sass', 'third-party-css', 'js', 'images', 'html']));
 
@@ -153,5 +155,10 @@ gulp.task('develop', () => {
 });
 
 gulp.task('production', () => {
-	DEST = './docs';
+	DEST = './dist';
+});
+
+gulp.task('deploy', function () {
+	return gulp.src('./dist/**/*')
+		.pipe(ghPages());
 });
