@@ -1,0 +1,75 @@
+body {
+	color: $color-grey-dark;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+	padding: 3rem;
+}
+
+.heading-primary {
+	/* fix animation bug */
+	backface-visibility: hidden;
+	color: $color-white;
+	margin-bottom: 6rem;
+	text-transform: uppercase;
+
+	&--main {
+		animation-duration: 1.5s;
+		animation-name: moveInLeft;
+		display: block;
+		font-size: 6rem;
+		font-weight: 400;
+		letter-spacing: 3.5rem;
+	}
+
+	&--sub {
+		animation: moveInRight 1.5s ease-out;
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: 1.75rem;
+	}
+}
+
+.heading-secondary {
+	color: transparent;
+	display: inline-block;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	transition: all 0.2s;
+
+	background: {
+		clip: text; // apply gradient just into text
+		image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	}
+
+	font: {
+		size: 3.5rem;
+		weight: 700;
+	}
+
+	&:hover {
+		text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+		transform: skew(15deg, 2deg) scale(1.1);
+	}
+
+}
+
+.heading-tertiary {
+	text-transform: uppercase;
+
+	font: {
+		size: $default-font-size;
+		weight: 700;
+	}
+}
+
+.paragraph {
+	font: {
+		size: $default-font-size;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}

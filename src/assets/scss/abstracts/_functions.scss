@@ -1,0 +1,7 @@
+@function grid-1-of-x($x-value) {
+	@return calc((100% - (#{$x-value} - 1) * #{$gutter-horizontal}) / #{$x-value});
+}
+
+@function grid-x-of-y($x-value, $y-value) {
+	@return calc((#{$x-value} * (100% - (#{$y-value} - 1) * #{$gutter-horizontal}) / #{$y-value}) + (#{$x-value} - 1) * #{$gutter-horizontal});
+}
