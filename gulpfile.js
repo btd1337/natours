@@ -16,7 +16,7 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-var DEST = 'src/';
+var DEST = 'dist/';
 
 var paths = {
   project: {
@@ -49,7 +49,7 @@ var paths = {
     dest: DEST.concat('assets/css/'),
   },
   styles_3rd: {
-    src: 'src/assets/css/3rd/**/*',
+    src: 'src/assets/css/3rd/**/*.*',
     dest: DEST.concat('assets/css/3rd/'),
   },
   styles_bootstrap: {
@@ -208,7 +208,6 @@ gulp.task(
 gulp.task(
   'build',
   gulp.series(
-    'clean',
     'production',
     gulp.parallel('sass', 'third-party-css', 'js', 'images', 'html'),
   ),
